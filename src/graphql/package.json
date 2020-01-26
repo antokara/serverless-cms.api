@@ -1,13 +1,13 @@
 {
   "name": "graphql",
+  "private": true,
   "version": "1.0.0",
   "description": "apollo graphql sample for NodeJS",
   "main": "app.js",
   "author": "SAM CLI",
-  "license": "MIT",
+  "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
     "apollo-server-lambda": "^2.9.16",
-    "axios": "^0.18.0",
     "graphql": "^14.5.8",
     "graphql-tools": "^4.0.6"
   },

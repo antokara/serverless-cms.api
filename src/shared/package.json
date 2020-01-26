@@ -1,0 +1,13 @@
+{
+  "name": "shared-packages",
+  "private": true,
+  "version": "1.0.0",
+  "description": "shared packages",
+  "author": "SAM CLI",
+  "license": "CC-BY-NC-ND-4.0",
+  "dependencies": {
+    "aws-lambda": "^1.0.5"
+  },
+  "scripts": {},
+  "devDependencies": {}
+}

@@ -33,4 +33,4 @@ const resolvers: IResolvers = {
 
 const server: ApolloServer = new ApolloServer({ typeDefs, resolvers });
 
-exports.lambdaHandler = server.createHandler();
+exports.handler = server.createHandler();
