@@ -1,7 +1,9 @@
-// const axios = require('axios')
 // const url = 'http://checkip.amazonaws.com/';
-let response;
-const { ApolloServer, gql } = require('apollo-server-lambda');
+import { ApolloServer, gql } from 'apollo-server-lambda';
+import { DocumentNode } from 'graphql';
+import { IResolvers } from 'graphql-tools';
+
+// TODO: use babel ts and fork for ts validation
 
 /**
  *
@@ -16,19 +18,19 @@ const { ApolloServer, gql } = require('apollo-server-lambda');
  *
  */
 // Construct a schema, using GraphQL schema language
-const typeDefs = gql`
+const typeDefs: DocumentNode = gql`
   type Query {
     hello: String
   }
 `;
 
 // Provide resolver functions for your schema fields
-const resolvers = {
+const resolvers: IResolvers = {
   Query: {
-    hello: () => 'Hello world!',
+    hello: () => 'GraphQL TS!',
   },
 };
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const server: ApolloServer = new ApolloServer({ typeDefs, resolvers });
 
 exports.lambdaHandler = server.createHandler();

@@ -14,7 +14,7 @@ Resources:
   GraphqlFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: graphql/
+      CodeUri: src/graphql/
       Handler: app.lambdaHandler
       Runtime: nodejs12.x
       Events:
@@ -28,12 +28,12 @@ Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
   # Find out more about other implicit resources you can reference within SAM
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
-  HelloWorldApi:
-    Description: 'API Gateway endpoint URL for Prod stage for Hello World function'
-    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/'
-  HelloWorldFunction:
-    Description: 'Hello World Lambda Function ARN'
-    Value: !GetAtt HelloWorldFunction.Arn
-  HelloWorldFunctionIamRole:
-    Description: 'Implicit IAM Role created for Hello World function'
-    Value: !GetAtt HelloWorldFunctionRole.Arn
+  GraphQLApi:
+    Description: 'API Gateway endpoint URL for Prod stage for GraphQL function'
+    Value: !Sub 'https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/graphql/'
+  GraphQLFunction:
+    Description: 'GraphQL Lambda Function ARN'
+    Value: !GetAtt GraphQLFunction.Arn
+  GraphQLFunctionIamRole:
+    Description: 'Implicit IAM Role created for GraphQL function'
+    Value: !GetAtt GraphQLFunctionRole.Arn

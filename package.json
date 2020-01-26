@@ -1,0 +1,67 @@
+{
+  "name": "serverless-cms.api",
+  "version": "1.0.0",
+  "description": "serverless cms - api",
+  "main": "index.js",
+  "scripts": {
+    "lint": "concurrently \"npm:lint:*\"",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:prettier": "npx prettier --check 'src/**/*.ts?(x)'",
+    "lint:tsc": "tsc --noEmit true",
+    "build": "webpack-cli",
+    "build:dev": "NODE_ENV=development npm run-script build",
+    "clean": "rimraf .aws-sam .vscode",
+    "prebuild": "rimraf .aws-sam .vscode",
+    "prewatch": "rimraf .aws-sam .vscode",
+    "dev:watch": "webpack-cli -w",
+    "dev:start-api": "sam local start-api",
+    "dev": "concurrently \"npm:dev:*\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antokara/serverless-cms.api.git"
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "AWS",
+    "lambda",
+    "serverless",
+    "cms",
+    "api"
+  ],
+  "author": "Antonios Karagiannis https://antokara.me",
+  "license": "CC-BY-NC-ND-4.0",
+  "bugs": {
+    "url": "https://github.com/antokara/serverless-cms.api/issues"
+  },
+  "homepage": "https://github.com/antokara/serverless-cms.api#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/graphql": "^14.5.0",
+    "@typescript-eslint/eslint-plugin": "^2.17.0",
+    "@typescript-eslint/parser": "^2.17.0",
+    "aws-sam-webpack-plugin": "^0.5.1",
+    "babel-loader": "^8.0.6",
+    "concurrently": "^5.0.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^6.3.1",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.20.0",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.606.0",
+    "source-map-support": "^0.5.16",
+    "apollo-server-lambda": "^2.9.16",
+    "axios": "^0.18.0",
+    "graphql": "^14.5.8",
+    "graphql-tools": "^4.0.6"
+  }
+}
