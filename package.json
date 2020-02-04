@@ -7,8 +7,8 @@
   "scripts": {
     "init": "npx recursive-install",
     "lint": "concurrently \"npm:lint:*\"",
-    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:prettier": "prettier --check 'src/**/*.ts?(x)'",
+    "lint:eslint": "eslint ./resources --ext .js,.jsx,.ts,.tsx",
+    "lint:prettier": "prettier --check 'resources/**/*.ts?(x)'",
     "lint:tsc": "tsc --noEmit true",
     "build": "webpack --config ./webpack.config.js --env.NODE_ENV=production --env.production --progress",
     "build:dev": "webpack --config ./webpack.config.js --env.NODE_ENV=development --progress",
