@@ -10,11 +10,11 @@
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check 'src/**/*.ts?(x)'",
     "lint:tsc": "tsc --noEmit true",
-    "build": "webpack-cli",
-    "build:dev": "NODE_ENV=development npm run build",
+    "build": "webpack --config ./webpack.config.js --env.NODE_ENV=production --env.production --progress",
+    "build:dev": "webpack --config ./webpack.config.js --env.NODE_ENV=development --progress",
     "dev:watch": "webpack-cli -w",
     "dev:start-api": "sam local start-api",
-    "dev": "concurrently \"npm:dev:*\""
+    "dev": "npm run build:dev && concurrently \"npm:dev:*\""
   },
   "repository": {
     "type": "git",
