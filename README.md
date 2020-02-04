@@ -2,6 +2,13 @@
 
 ## local dev
 
+### installation
+
+`$npm run init`
+
+### run
+
+TODO: needs to run in sequence to ensure template.yml has been copied
 `$npm run dev`
 
 or
@@ -12,3 +19,7 @@ or
 ## lint
 
 `$npm run lint`
+
+## build
+
+`$npm run build`

@@ -8,6 +8,7 @@
   "dependencies": {
     "aws-lambda": "^1.0.5"
   },
-  "scripts": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/aws-lambda": "8.10.3"
+  }
 }

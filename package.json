@@ -5,15 +5,13 @@
   "description": "serverless cms - api",
   "main": "index.js",
   "scripts": {
+    "init": "npx recursive-install",
     "lint": "concurrently \"npm:lint:*\"",
     "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check 'src/**/*.ts?(x)'",
     "lint:tsc": "tsc --noEmit true",
     "build": "webpack-cli",
-    "build:dev": "NODE_ENV=development npm run-script build",
-    "clean": "rimraf .aws-sam .vscode",
-    "prebuild": "rimraf .aws-sam .vscode",
-    "prewatch": "rimraf .aws-sam .vscode",
+    "build:dev": "NODE_ENV=development npm run build",
     "dev:watch": "webpack-cli -w",
     "dev:start-api": "sam local start-api",
     "dev": "concurrently \"npm:dev:*\""
@@ -46,24 +44,19 @@
     "@types/graphql": "^14.5.0",
     "@typescript-eslint/eslint-plugin": "^2.17.0",
     "@typescript-eslint/parser": "^2.17.0",
-    "aws-sam-webpack-plugin": "^0.5.1",
     "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
     "concurrently": "^5.0.2",
+    "copy-webpack-plugin": "^5.1.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^6.3.1",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-import": "^2.20.0",
+    "parallel-webpack": "^2.4.0",
     "prettier": "^1.19.1",
     "typescript": "^3.7.5",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
-  },
-  "dependencies": {
-    "apollo-server-lambda": "^2.9.16",
-    "aws-sdk": "^2.606.0",
-    "axios": "^0.18.0",
-    "graphql": "^14.5.8",
-    "graphql-tools": "^4.0.6",
-    "source-map-support": "^0.5.16"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   }
 }
