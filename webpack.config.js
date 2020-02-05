@@ -1,3 +1,4 @@
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
@@ -51,7 +52,13 @@ const baseOptions = {
         toType: 'dir',
       },
     ]),
+    new ForkTsCheckerWebpackPlugin({
+      eslint: true,
+    }),
   ],
+  stats: {
+    excludeAssets: [/node_modules/],
+  },
 };
 
 module.exports = [merge(baseOptions, publicGraphql)];

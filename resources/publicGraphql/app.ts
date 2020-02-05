@@ -2,20 +2,6 @@ import { ApolloServer, gql } from 'apollo-server-lambda';
 import { DocumentNode } from 'graphql';
 import { IResolvers } from 'graphql-tools';
 
-// TODO: use babel ts and fork for ts validation
-
-/**
- *
- * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
- * @param {Object} event - API Gateway Lambda Proxy Input Format
- *
- * Context doc: https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html
- * @param {Object} context
- *
- * Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
- * @returns {Object} object - API Gateway Lambda Proxy Output Format
- *
- */
 // Construct a schema, using GraphQL schema language
 const typeDefs: DocumentNode = gql`
   type Query {
@@ -26,11 +12,11 @@ const typeDefs: DocumentNode = gql`
 // Provide resolver functions for your schema fields
 const resolvers: IResolvers = {
   Query: {
-    hello: () => 'GraphQL TS!',
+    hello: (): string => 'GraphQL TS!',
   },
 };
 
 const server: ApolloServer = new ApolloServer({ typeDefs, resolvers });
-const handler: any = server.createHandler();
+const handler = server.createHandler();
 
 export { handler };
