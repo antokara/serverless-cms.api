@@ -1,4 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server-lambda';
+import { APIGatewayProxyHandler } from 'aws-lambda';
 import { DocumentNode } from 'graphql';
 import { IResolvers } from 'graphql-tools';
 
@@ -17,6 +18,6 @@ const resolvers: IResolvers = {
 };
 
 const server: ApolloServer = new ApolloServer({ typeDefs, resolvers });
-const handler = server.createHandler();
+const handler: APIGatewayProxyHandler = server.createHandler();
 
 export { handler };
