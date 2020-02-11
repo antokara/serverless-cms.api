@@ -8,7 +8,11 @@
 
 ### run
 
-#### one command
+#### DynamoDB
+
+`$sudo docker-compose -f containers/compose.develop.yml up`
+
+#### one command API
 
 `$npm run dev`
 
