@@ -14,7 +14,9 @@
     "build:dev": "webpack --config ./webpack.config.js --env.NODE_ENV=development --progress",
     "dev:watch": "webpack-cli -w",
     "dev:start-api": "sam local start-api",
-    "dev": "npm run build:dev && concurrently \"npm:dev:*\""
+    "dev": "npm run build:dev && concurrently \"npm:dev:*\"",
+    "debug:publicGraphql": "sam local invoke -d 5858 publicGraphql",
+    "debug:api": "sam local start-api -d 5858"
   },
   "repository": {
     "type": "git",

@@ -19,6 +19,9 @@ const baseOptions = {
   devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.js'],
+    alias: {
+      resources: path.resolve(__dirname, 'resources/'),
+    },
   },
   target: 'node',
   mode: process.env.NODE_ENV || 'production',
