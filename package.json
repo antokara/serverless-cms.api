@@ -10,6 +10,7 @@
     "lint:eslint": "eslint ./resources --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check 'resources/**/*.ts?(x)'",
     "lint:tsc": "tsc --noEmit true",
+    "lint:commit": "commitlint --from=HEAD~1",
     "build": "webpack --config ./webpack.config.ts --env.NODE_ENV=production --env.production --progress",
     "build:dev": "webpack --config ./webpack.config.ts --env.NODE_ENV=development --progress",
     "dev:watch": "webpack-cli -w",
@@ -43,6 +44,8 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@types/copy-webpack-plugin": "^5.0.0",
     "@types/graphql": "^14.5.0",
     "@types/node": "^13.11.1",
@@ -68,5 +71,10 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
