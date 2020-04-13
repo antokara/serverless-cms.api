@@ -32,4 +32,12 @@ module.exports = {
       },
     ],
   },
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [['resources', './resources']],
+        extensions: ['.ts', '.js', '.jsx', '.json'],
+      },
+    },
+  },
 };
