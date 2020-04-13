@@ -9,7 +9,7 @@ const resolvers: IResolvers = {
       parent: IEnumResolver,
       args: undefined,
       ctx: TContext,
-    ): Promise<String | undefined> => {
+    ): Promise<string | undefined> => {
       const params: DynamoDB.Types.GetItemInput = {
         Key: {
           itemKey: {

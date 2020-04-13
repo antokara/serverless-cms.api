@@ -1,14 +1,22 @@
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
-const merge = require('webpack-merge');
-const publicGraphql = require('./resources/publicGraphql/webpack.config');
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import * as path from 'path';
+import CopyPlugin from 'copy-webpack-plugin';
+import merge from 'webpack-merge';
+import { Configuration } from 'webpack';
+import { config as publicGraphql } from './resources/publicGraphql/webpack.config';
 
-const buildPath = path.join(__dirname, '/.aws-sam/build');
-const resourcesPath = `${buildPath}/resources`;
-
-const baseOptions = {
+const buildPath: string = path.join(__dirname, '/.aws-sam/build');
+const resourcesPath: string = `${buildPath}/resources`;
+let mode: 'development' | 'production' | 'none' | undefined = 'production';
+if (
+  (process.env.NODE_ENV && process.env.NODE_ENV === 'development') ||
+  process.env.NODE_ENV === 'production' ||
+  process.env.NODE_ENV === 'none'
+) {
+  mode = process.env.NODE_ENV;
+}
+const baseOptions: Configuration = {
   output: {
     filename: '[name]/app.js',
     libraryTarget: 'commonjs',
@@ -24,7 +32,7 @@ const baseOptions = {
     },
   },
   target: 'node',
-  mode: process.env.NODE_ENV || 'production',
+  mode,
   module: {
     rules: [
       // fixes https://github.com/graphql/graphql-js/issues/1272

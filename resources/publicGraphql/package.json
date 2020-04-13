@@ -1,5 +1,5 @@
 {
-  "name": "graphql",
+  "name": "public-graphql",
   "private": true,
   "version": "1.0.0",
   "description": "apollo graphql sample for NodeJS",
@@ -8,13 +8,14 @@
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
     "apollo-server-core": "^2.12.0",
-    "apollo-server-lambda": "^2.9.16",
+    "apollo-server-lambda": "^2.12.0",
     "aws-lambda": "^1.0.5",
     "aws-sdk": "^2.656.0",
-    "graphql": "^14.5.8",
-    "graphql-tools": "^4.0.6"
+    "graphql": "^15.0.0",
+    "graphql-tools": "^4.0.7"
   },
   "devDependencies": {
+    "@types/webpack-node-externals": "^1.7.1",
     "webpack-node-externals": "^1.7.2"
   }
 }
