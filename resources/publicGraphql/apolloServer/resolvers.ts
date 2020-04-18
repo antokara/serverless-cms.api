@@ -1,5 +1,5 @@
 import { IResolvers, IEnumResolver } from 'graphql-tools';
-import { ScanOutput, ScanInput } from 'aws-sdk/clients/dynamodb';
+import { ScanOutput } from 'aws-sdk/clients/dynamodb';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
 import { ILanguage, parseAttributeMap } from 'resources/shared/models/Language';
 
@@ -10,18 +10,16 @@ const resolvers: IResolvers = {
       parent: IEnumResolver,
       args: undefined,
       ctx: TContext,
-    ): Promise<ILanguage[]> => {
-      const params: ScanInput = {
-        TableName: 'languages',
-      };
-
-      try {
-        const data: ScanOutput = await ctx.dynamoDB.scan(params).promise();
-        return Promise.resolve(data?.Items?.map(parseAttributeMap) ?? []);
-      } catch (e) {
-        return Promise.resolve(e.message);
-      }
-    },
+    ): Promise<ILanguage[]> =>
+      ctx.dynamoDB
+        .scan({
+          TableName: 'languages',
+        })
+        .promise()
+        .then(
+          (data: ScanOutput): ILanguage[] =>
+            data?.Items?.map(parseAttributeMap) ?? [],
+        ),
   },
 };
 
