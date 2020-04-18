@@ -6,7 +6,7 @@ import { ILanguage, parseAttributeMap } from 'resources/shared/models/Language';
 // Provide resolver functions for your schema fields
 const resolvers: IResolvers = {
   Query: {
-    languages: async (
+    languages: (
       parent: IEnumResolver,
       args: undefined,
       ctx: TContext,
