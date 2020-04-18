@@ -13,6 +13,7 @@ module.exports = {
     'prettier/react',
   ],
   rules: {
+    '@typescript-eslint/interface-name-prefix': 'always',
     'no-dupe-class-members': 'off',
     '@typescript-eslint/no-dupe-class-members': ['error'],
     'import/prefer-default-export': 'off',
