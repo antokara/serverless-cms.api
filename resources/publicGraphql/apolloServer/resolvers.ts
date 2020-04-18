@@ -1,7 +1,7 @@
 import { IResolvers, IEnumResolver } from 'graphql-tools';
-import { AttributeMap, ScanInput, ScanOutput } from 'aws-sdk/clients/dynamodb';
+import { ScanOutput, ScanInput } from 'aws-sdk/clients/dynamodb';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
-import { ILanguage } from 'resources/shared/models/Language';
+import { ILanguage, parseAttributeMap } from 'resources/shared/models/Language';
 
 // Provide resolver functions for your schema fields
 const resolvers: IResolvers = {
@@ -17,17 +17,7 @@ const resolvers: IResolvers = {
 
       try {
         const data: ScanOutput = await ctx.dynamoDB.scan(params).promise();
-        return Promise.resolve(
-          data?.Items?.map(
-            (language: AttributeMap): ILanguage => ({
-              unicode: language.unicode.S ?? '',
-              title: language.title.S ?? '',
-              sort: Number(language.sort.N) ?? 0,
-              fallback: Boolean(language.fallback.B) ?? false,
-              pStatus: language.pStatus.S ?? '',
-            }),
-          ) ?? [],
-        );
+        return Promise.resolve(data?.Items?.map(parseAttributeMap) ?? []);
       } catch (e) {
         return Promise.resolve(e.message);
       }

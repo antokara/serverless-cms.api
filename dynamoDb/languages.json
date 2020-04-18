@@ -5,20 +5,12 @@
       {
         "AttributeName": "unicode",
         "AttributeType": "S"
-      },
-      {
-        "AttributeName": "sort",
-        "AttributeType": "N"
       }
     ],
     "KeySchema": [
       {
         "AttributeName": "unicode",
         "KeyType": "HASH"
-      },
-      {
-        "AttributeName": "sort",
-        "KeyType": "RANGE"
       }
     ],
     "TableName": "languages",
