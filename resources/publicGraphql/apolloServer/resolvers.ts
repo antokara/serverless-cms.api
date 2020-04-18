@@ -1,29 +1,33 @@
 import { IResolvers, IEnumResolver } from 'graphql-tools';
-import { DynamoDB } from 'aws-sdk';
+import { AttributeMap, ScanInput, ScanOutput } from 'aws-sdk/clients/dynamodb';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
+import { ILanguage } from 'resources/shared/models/Language';
 
 // Provide resolver functions for your schema fields
 const resolvers: IResolvers = {
   Query: {
-    hello: async (
+    languages: async (
       parent: IEnumResolver,
       args: undefined,
       ctx: TContext,
-    ): Promise<string | undefined> => {
-      const params: DynamoDB.Types.GetItemInput = {
-        Key: {
-          itemKey: {
-            S: 'test-key-1',
-          },
-        },
-        TableName: 'items',
+    ): Promise<ILanguage[]> => {
+      const params: ScanInput = {
+        TableName: 'languages',
       };
 
       try {
-        const data: DynamoDB.GetItemOutput = await ctx.dynamoDB
-          .getItem(params)
-          .promise();
-        return Promise.resolve(data?.Item?.value.S);
+        const data: ScanOutput = await ctx.dynamoDB.scan(params).promise();
+        return Promise.resolve(
+          data?.Items?.map(
+            (language: AttributeMap): ILanguage => ({
+              unicode: language.unicode.S ?? '',
+              title: language.title.S ?? '',
+              sort: Number(language.sort.N) ?? 0,
+              fallback: Boolean(language.fallback.B) ?? false,
+              pStatus: language.pStatus.S ?? '',
+            }),
+          ) ?? [],
+        );
       } catch (e) {
         return Promise.resolve(e.message);
       }

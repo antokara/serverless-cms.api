@@ -1,0 +1,39 @@
+[
+  /* definition */
+  {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "unicode",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "sort",
+        "AttributeType": "N"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "unicode",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "sort",
+        "KeyType": "RANGE"
+      }
+    ],
+    "TableName": "languages",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  },
+
+  /* data */
+  {
+    "unicode": "en-US",
+    "sort": 0,
+    "fallback": true,
+    "pStatus": "published",
+    "title": "English"
+  }
+]
