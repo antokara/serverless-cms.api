@@ -6,8 +6,10 @@
   "author": "SAM CLI",
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
+    "apollo-server-lambda": "^2.12.0",
     "aws-lambda": "^1.0.5",
-    "aws-sdk": "^2.656.0"
+    "aws-sdk": "^2.656.0",
+    "graphql": "^15.0.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "8.10.3"

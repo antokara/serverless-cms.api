@@ -1,9 +1,7 @@
 import { gql } from 'apollo-server-lambda';
 import { DocumentNode } from 'graphql';
 
-// Construct a schema, using GraphQL schema language
-// TODO: break down to smaller files
-const typeDefs: DocumentNode = gql`
+const Language: DocumentNode = gql`
   type Language {
     unicode: ID
     sort: Int
@@ -11,10 +9,6 @@ const typeDefs: DocumentNode = gql`
     pStatus: String
     title: String
   }
-
-  type Query {
-    languages: [Language]
-  }
 `;
 
-export { typeDefs };
+export { Language };
