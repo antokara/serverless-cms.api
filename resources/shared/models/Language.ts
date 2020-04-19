@@ -1,4 +1,5 @@
 import { AttributeMap } from 'aws-sdk/clients/dynamodb';
+import { EStatus } from 'resources/shared/models/EStatus';
 
 /**
  * interface used by the Apollo Resolver, etc.
@@ -7,7 +8,7 @@ interface ILanguage {
   unicode: string;
   sort: number;
   fallback: boolean;
-  pStatus: string;
+  pStatus: EStatus;
   title: string;
 }
 
@@ -24,7 +25,8 @@ const parseAttributeMap: (language: AttributeMap) => ILanguage = (
   title: language.title.S ?? '',
   sort: Number(language.sort.N) ?? 0,
   fallback: Boolean(language.fallback.B) ?? false,
-  pStatus: language.pStatus.S ?? '',
+  pStatus:
+    EStatus[(language.pStatus.S as keyof typeof EStatus) ?? EStatus.DRAFT],
 });
 
 export { ILanguage, parseAttributeMap };

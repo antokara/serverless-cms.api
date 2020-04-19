@@ -6,7 +6,7 @@ const Language: DocumentNode = gql`
     unicode: ID
     sort: Int
     fallback: Boolean
-    pStatus: String
+    pStatus: EStatus
     title: String
   }
 `;
