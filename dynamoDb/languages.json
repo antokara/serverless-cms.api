@@ -1,5 +1,5 @@
 [
-  /* definition */
+  { "__comment": "definition" },
   {
     "AttributeDefinitions": [
       {
@@ -20,7 +20,7 @@
     }
   },
 
-  /* data */
+  { "__comment": "data" },
   {
     "unicode": "en-US",
     "sort": 0,
