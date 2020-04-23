@@ -1,0 +1,32 @@
+[
+  { "__comment": "definition" },
+  {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "id",
+        "AttributeType": "S"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "id",
+        "KeyType": "HASH"
+      }
+    ],
+    "TableName": "fieldTypes",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  },
+
+  { "__comment": "data" },
+  {
+    "id": "plainText",
+    "title": "Plain Text",
+    "description": "text without styling",
+    "pStatus": "PUBLISHED",
+    "lines": 1,
+    "localized": false
+  }
+]
