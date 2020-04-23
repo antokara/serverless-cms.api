@@ -1,0 +1,52 @@
+[
+  { "__comment": "definition" },
+  {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "id",
+        "AttributeType": "S"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "id",
+        "KeyType": "HASH"
+      }
+    ],
+    "TableName": "pages",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  },
+
+  { "__comment": "data" },
+  {
+    "id": "home",
+    "title": "Home",
+    "description": "the home page",
+    "pStatus": "PUBLISHED",
+    "pageTypeId": "home",
+    "fieldValues": [
+      {
+        "id": "plainText",
+        "key": "content",
+        "value": "this is the content!"
+      }
+    ],
+    "url": {
+      "en-US": "/home"
+    },
+    "meta": {
+      "title": {
+        "en-US": "Home page meta title"
+      },
+      "description": {
+        "en-US": "Home page meta description"
+      },
+      "keywords": {
+        "en-US": "Home page meta keywords"
+      }
+    }
+  }
+]
