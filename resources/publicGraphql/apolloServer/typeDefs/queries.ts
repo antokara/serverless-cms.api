@@ -1,10 +1,11 @@
 import { gql } from 'apollo-server-lambda';
 import { DocumentNode } from 'graphql';
 
-const languages: DocumentNode = gql`
+const queries: DocumentNode = gql`
   type Query {
     languages: [Language]
+    menus: [Menu]
   }
 `;
 
-export { languages };
+export { queries };

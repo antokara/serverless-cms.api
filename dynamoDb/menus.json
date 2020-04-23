@@ -3,17 +3,17 @@
   {
     "AttributeDefinitions": [
       {
-        "AttributeName": "unicode",
+        "AttributeName": "id",
         "AttributeType": "S"
       }
     ],
     "KeySchema": [
       {
-        "AttributeName": "unicode",
+        "AttributeName": "id",
         "KeyType": "HASH"
       }
     ],
-    "TableName": "languages",
+    "TableName": "menus",
     "ProvisionedThroughput": {
       "ReadCapacityUnits": 1,
       "WriteCapacityUnits": 1
@@ -22,10 +22,14 @@
 
   { "__comment": "data" },
   {
-    "unicode": "en-US",
-    "title": "English",
-    "fallback": true,
+    "id": "header",
+    "title": "Header",
+    "description": "the header menu",
     "pStatus": "PUBLISHED",
-    "sort": 0
+    "expandLevels": 1,
+    "minPages": 3,
+    "maxPages": 6,
+    "pages": [],
+    "pageTypes": []
   }
 ]
