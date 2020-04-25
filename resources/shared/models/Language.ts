@@ -15,8 +15,6 @@ interface ILanguage {
 /**
  * parses the attributeMap provided by the DynamoDB output and
  * returns the interface model that the Apollo Resolver expects
- *
- * @param language
  */
 const parseAttributeMap: (language: AttributeMap) => ILanguage = (
   language: AttributeMap,

@@ -17,8 +17,6 @@ interface IMenu {
 /**
  * parses the attributeMap provided by the DynamoDB output and
  * returns the interface model that the Apollo Resolver expects
- *
- * @param menu
  */
 const parseAttributeMap: (menu: AttributeMap) => IMenu = (
   menu: AttributeMap,
