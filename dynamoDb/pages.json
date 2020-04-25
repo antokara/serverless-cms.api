@@ -34,19 +34,31 @@
         "value": "this is the content!"
       }
     ],
-    "url": {
-      "en-US": "/home"
-    },
-    "meta": {
-      "title": {
-        "en-US": "Home page meta title"
-      },
-      "description": {
-        "en-US": "Home page meta description"
-      },
-      "keywords": {
-        "en-US": "Home page meta keywords"
+    "url": [
+      {
+        "unicode": "en-US",
+        "value": "/home"
       }
+    ],
+    "meta": {
+      "title": [
+        {
+          "unicode": "en-US",
+          "value": "Home page meta title"
+        }
+      ],
+      "description": [
+        {
+          "unicode": "en-US",
+          "value": "Home page meta description"
+        }
+      ],
+      "keywords": [
+        {
+          "unicode": "en-US",
+          "value": "Home page meta keywords"
+        }
+      ]
     }
   }
 ]

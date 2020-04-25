@@ -5,6 +5,7 @@ const queries: DocumentNode = gql`
   type Query {
     languages: [Language]
     menus: [Menu]
+    page: Page
   }
 `;
 
