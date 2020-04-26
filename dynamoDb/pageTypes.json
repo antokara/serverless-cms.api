@@ -30,7 +30,8 @@
       {
         "id": "plainText",
         "key": "content",
-        "lines": 10
+        "lines": 10,
+        "localized": false
       }
     ],
     "minimum": 1,

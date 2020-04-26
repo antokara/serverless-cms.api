@@ -1,6 +1,6 @@
 import { DocumentNode } from 'graphql';
 import { queries } from 'resources/publicGraphql/apolloServer/typeDefs/queries';
-import { FieldType } from 'resources/shared/typeDefs/types/FieldType';
+import { PageFieldType } from 'resources/shared/typeDefs/types/PageFieldType';
 import { FieldValue } from 'resources/shared/typeDefs/types/FieldValue';
 import { Language } from 'resources/shared/typeDefs/types/Language';
 import { LocalizedString } from 'resources/shared/typeDefs/types/LocalizedString';
@@ -12,7 +12,7 @@ import { Status } from 'resources/shared/typeDefs/enums/Status';
 
 const typeDefs: DocumentNode[] = [
   queries,
-  FieldType,
+  PageFieldType,
   FieldValue,
   Language,
   LocalizedString,

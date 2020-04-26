@@ -7,7 +7,7 @@ const PageType: DocumentNode = gql`
     title: String
     description: String
     pStatus: EStatus
-    fieldTypes: [FieldType]
+    fieldTypes: [PageFieldType]
     minimum: Int
     maximum: Int
     childrenPages: [PageType]

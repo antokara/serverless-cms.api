@@ -1,4 +1,4 @@
-import { AttributeMap, AttributeValue } from 'aws-sdk/clients/dynamodb';
+import { AttributeMap } from 'aws-sdk/clients/dynamodb';
 import { EStatus } from 'resources/shared/models/EStatus';
 import {
   ILocalizedString,

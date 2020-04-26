@@ -1,8 +1,8 @@
 import { gql } from 'apollo-server-lambda';
 import { DocumentNode } from 'graphql';
 
-const FieldType: DocumentNode = gql`
-  type FieldType {
+const PageFieldType: DocumentNode = gql`
+  type PageFieldType {
     id: ID
     title: String
     description: String
@@ -12,4 +12,4 @@ const FieldType: DocumentNode = gql`
   }
 `;
 
-export { FieldType };
+export { PageFieldType };
