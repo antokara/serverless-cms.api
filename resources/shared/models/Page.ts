@@ -1,12 +1,18 @@
-import { AttributeMap } from 'aws-sdk/clients/dynamodb';
+import { AttributeMap, AttributeValue } from 'aws-sdk/clients/dynamodb';
 import { EStatus } from 'resources/shared/models/EStatus';
-import { ILocalizedString } from 'resources/shared/models/ILocalizedString';
-import { IFieldValue } from 'resources/shared/models/IFieldValue';
+import {
+  ILocalizedString,
+  parseListAttributeValue as parseLocalizedStrings,
+} from 'resources/shared/models/LocalizedString';
+import {
+  IFieldValue,
+  parseListAttributeValue as parseFieldValues,
+} from 'resources/shared/models/IFieldValue';
 
 interface IMeta {
-  title: ILocalizedString;
-  description: ILocalizedString;
-  keywords: ILocalizedString;
+  title: ILocalizedString[];
+  description: ILocalizedString[];
+  keywords: ILocalizedString[];
 }
 
 /**
@@ -18,9 +24,9 @@ interface IPage {
   description: string;
   pStatus: EStatus;
   pageTypeId: string;
-  // fieldValues: [IFieldValue];
-  // url: [ILocalizedString];
-  // meta: [IMeta];
+  fieldValues: IFieldValue[];
+  url: ILocalizedString[];
+  meta: IMeta;
 }
 
 /**
@@ -35,7 +41,13 @@ const parseAttributeMap: (page: AttributeMap) => IPage = (
   description: page.description.S ?? '',
   pStatus: EStatus[(page.pStatus.S as keyof typeof EStatus) ?? EStatus.DRAFT],
   pageTypeId: page.pageTypeId.S ?? '',
-  // fieldValues: page.fieldValues.S,
+  url: parseLocalizedStrings(page.url.L ?? []),
+  meta: {
+    title: parseLocalizedStrings(page?.meta?.M?.title.L ?? []),
+    description: parseLocalizedStrings(page?.meta?.M?.description.L ?? []),
+    keywords: parseLocalizedStrings(page?.meta?.M?.keywords.L ?? []),
+  },
+  fieldValues: parseFieldValues(page?.fieldValues.L ?? []),
 });
 
 export { IMeta, IPage, parseAttributeMap };
