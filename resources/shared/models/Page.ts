@@ -4,11 +4,8 @@ import {
   ILocalizedString,
   parseListAttributeValue as parseLocalizedStrings,
 } from 'resources/shared/models/LocalizedString';
-import {
-  IFieldValue,
-  parseListAttributeValue as parseFieldValues,
-} from 'resources/shared/models/fieldValue/IFieldValue';
-import { TLUString } from 'resources/shared/models/fieldValue/string/TLUString';
+import { parseListAttributeValue as parseFieldValues } from 'resources/shared/models/fieldValue/parsers';
+import { TFieldValue } from 'resources/shared/models/fieldValue/TFieldValue';
 
 interface IMeta {
   title: ILocalizedString[];
@@ -25,8 +22,7 @@ interface IPage {
   description: string;
   pStatus: EStatus;
   pageTypeId: string;
-  // TODO: use proper interface here, not string specific
-  fieldValues: TLUString[];
+  fieldValues: TFieldValue[];
   url: ILocalizedString[];
   meta: IMeta;
 }
