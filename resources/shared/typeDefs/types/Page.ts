@@ -8,7 +8,7 @@ const Page: DocumentNode = gql`
     description: String
     pStatus: EStatus
     pageTypeId: String
-    fieldValues: [FieldValue]
+    fieldValues: [FieldValueLUString]
     url: [LocalizedString]
     meta: PageMeta
   }

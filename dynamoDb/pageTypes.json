@@ -32,6 +32,12 @@
         "key": "content",
         "lines": 10,
         "localized": false
+      },
+      {
+        "id": "plainText",
+        "key": "side content",
+        "lines": 1,
+        "localized": true
       }
     ],
     "minimum": 1,

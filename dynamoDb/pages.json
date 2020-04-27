@@ -31,7 +31,17 @@
       {
         "id": "plainText",
         "key": "content",
-        "value": "this is the content!"
+        "uStringValue": "this is the content!"
+      },
+      {
+        "id": "plainText",
+        "key": "side content",
+        "lStringValue": [
+          {
+            "unicode": "en-US",
+            "value": "this is the side content en-US!"
+          }
+        ]
       }
     ],
     "url": [
