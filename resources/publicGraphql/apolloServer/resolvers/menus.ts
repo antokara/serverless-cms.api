@@ -2,13 +2,14 @@ import { IEnumResolver } from 'graphql-tools';
 import { ScanOutput } from 'aws-sdk/clients/dynamodb';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
 import { IMenu, parseAttributeMap } from 'resources/shared/models/Menu';
+import { AttributeMap } from 'aws-sdk/clients/dynamodb';
 import { TResolverFn } from './TResolverFn';
 
 /**
  * resolver function for the menus query.
  * returns the list of all menus, unsorted
  */
-const menus: TResolverFn<IMenu[]> = (
+const menus: TResolverFn<IMenu[]> = async (
   parent: IEnumResolver,
   args: undefined,
   ctx: TContext,
@@ -19,7 +20,13 @@ const menus: TResolverFn<IMenu[]> = (
     })
     .promise()
     .then(
-      (data: ScanOutput): IMenu[] => data?.Items?.map(parseAttributeMap) ?? [],
+      async (data: ScanOutput): Promise<IMenu[]> =>
+        await Promise.all(
+          data?.Items?.map(
+            async (menu: AttributeMap): Promise<IMenu> =>
+              await parseAttributeMap(menu, parent, ctx),
+          ) ?? [],
+        ),
     );
 
 export { menus };

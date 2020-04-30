@@ -1,5 +1,9 @@
-import { AttributeMap } from 'aws-sdk/clients/dynamodb';
+import { AttributeMap, AttributeValue } from 'aws-sdk/clients/dynamodb';
 import { EStatus } from 'resources/shared/models/EStatus';
+import { IPage } from 'resources/shared/models/Page';
+import { TContext } from 'resources/publicGraphql/apolloServer/context';
+import { page as pageResolver } from 'resources/publicGraphql/apolloServer/resolvers/page';
+import { IEnumResolver } from 'graphql-tools';
 
 /**
  * interface used by the Apollo Resolver, etc.
@@ -12,15 +16,22 @@ interface IMenu {
   expandLevels: number;
   minPages: number;
   maxPages: number;
+  pages?: IPage[];
 }
 
 /**
  * parses the attributeMap provided by the DynamoDB output and
  * returns the interface model that the Apollo Resolver expects
  */
-const parseAttributeMap: (menu: AttributeMap) => IMenu = (
+const parseAttributeMap: (
   menu: AttributeMap,
-): IMenu => ({
+  parent: IEnumResolver,
+  ctx: TContext,
+) => Promise<IMenu> = async (
+  menu: AttributeMap,
+  parent: IEnumResolver,
+  ctx: TContext,
+): Promise<IMenu> => ({
   id: menu.id.S ?? '',
   title: menu.title.S ?? '',
   description: menu.description.S ?? '',
@@ -28,6 +39,20 @@ const parseAttributeMap: (menu: AttributeMap) => IMenu = (
   expandLevels: Number(menu.expandLevels.N) ?? 0,
   minPages: Number(menu.minPages.N) ?? 0,
   maxPages: Number(menu.maxPages.N) ?? 0,
+  pages: await Promise.all<IPage | undefined>(
+    menu.pages.L?.map<Promise<IPage | undefined>>(
+      async (page: AttributeValue): Promise<IPage | undefined> => {
+        if (typeof page.S !== 'undefined') {
+          return pageResolver(parent, { id: page.S }, ctx);
+        }
+        return Promise.resolve(undefined);
+      },
+    ) ?? [],
+  ).then((pages: (IPage | undefined)[]) =>
+    pages.filter(
+      (page: IPage | undefined): page is IPage => typeof page !== undefined,
+    ),
+  ),
 });
 
 export { IMenu, parseAttributeMap };

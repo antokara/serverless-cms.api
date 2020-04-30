@@ -10,6 +10,7 @@ const Menu: DocumentNode = gql`
     expandLevels: Int
     minPages: Int
     maxPages: Int
+    pages: [Page]
   }
 `;
 

@@ -25,6 +25,8 @@ interface IPage {
   fieldValues: TFieldValue[];
   url: ILocalizedString[];
   meta: IMeta;
+  // TODO: shortcut page
+  // TODO: children pages (using the PageToPages table)
 }
 
 /**
