@@ -21,10 +21,10 @@ const menus: TResolverFn<IMenu[]> = async (
     .promise()
     .then(
       async (data: ScanOutput): Promise<IMenu[]> =>
-        await Promise.all(
+        Promise.all(
           data?.Items?.map(
             async (menu: AttributeMap): Promise<IMenu> =>
-              await parseAttributeMap(menu, parent, ctx),
+              parseAttributeMap(menu, parent, ctx),
           ) ?? [],
         ),
     );
