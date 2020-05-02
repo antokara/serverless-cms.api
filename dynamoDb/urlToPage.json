@@ -1,0 +1,49 @@
+[
+  { "__comment": "definition" },
+  {
+    "__comment": "used to find a page by the unicode+path. it can return the pageId or another URL + httpCode, in case of a redirection"
+  },
+  {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "unicode",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "path",
+        "AttributeType": "S"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "unicode",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "path",
+        "KeyType": "RANGE"
+      }
+    ],
+    "TableName": "urlToPage",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  },
+
+  { "__comment": "data" },
+  {
+    "data": [
+      {
+        "unicode": "en-US",
+        "path": "/",
+        "pageId": "home"
+      },
+      {
+        "unicode": "en-US",
+        "path": "/contact",
+        "pageId": "contact"
+      }
+    ]
+  }
+]
