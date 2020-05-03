@@ -5,7 +5,11 @@ const queries: DocumentNode = gql`
   type Query {
     languages: [Language]
     menus: [Menu]
-    page(id: ID!): Page
+    page(
+      id: ID = undefined
+      unicode: String = undefined
+      path: String = undefined
+    ): Page
   }
 `;
 

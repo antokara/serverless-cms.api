@@ -42,7 +42,8 @@
       {
         "unicode": "en-US",
         "path": "/contact",
-        "pageId": "contact"
+        "url": "http://localhost/test",
+        "httpCode": 307
       }
     ]
   }
