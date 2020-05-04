@@ -50,7 +50,7 @@ const parseAttributeMap: (
     ) ?? [],
   ).then((pages: (IPage | undefined)[]) =>
     pages.filter(
-      (page: IPage | undefined): page is IPage => typeof page !== undefined,
+      (page: IPage | undefined): page is IPage => typeof page !== 'undefined',
     ),
   ),
 });

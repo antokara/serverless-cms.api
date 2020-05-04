@@ -1,8 +1,7 @@
 import { IEnumResolver } from 'graphql-tools';
-import { ScanOutput } from 'aws-sdk/clients/dynamodb';
+import { AttributeMap, ScanOutput } from 'aws-sdk/clients/dynamodb';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
 import { IMenu, parseAttributeMap } from 'resources/shared/models/Menu';
-import { AttributeMap } from 'aws-sdk/clients/dynamodb';
 import { TResolverFn } from './TResolverFn';
 
 /**
