@@ -5,11 +5,8 @@ const queries: DocumentNode = gql`
   type Query {
     languages: [Language]
     menus: [Menu]
-    page(
-      id: ID = undefined
-      unicode: String = undefined
-      path: String = undefined
-    ): Page
+    page(id: ID): Page
+    urlToPage(unicode: String, path: String): Page
   }
 `;
 
