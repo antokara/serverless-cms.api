@@ -6,7 +6,7 @@ const queries: DocumentNode = gql`
     languages: [Language]
     menus: [Menu]
     page(id: ID): Page
-    urlToPage(unicode: String, path: String): Page
+    urlToPage(unicode: String, path: String): UrlToPage
   }
 `;
 

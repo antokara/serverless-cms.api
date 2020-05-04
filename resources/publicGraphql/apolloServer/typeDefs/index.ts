@@ -11,6 +11,7 @@ import { Menu } from 'resources/shared/typeDefs/types/Menu';
 import { Page } from 'resources/shared/typeDefs/types/Page';
 import { PageMeta } from 'resources/shared/typeDefs/types/PageMeta';
 import { PageType } from 'resources/shared/typeDefs/types/PageType';
+import { UrlToPage } from 'resources/shared/typeDefs/types/UrlToPage';
 import { Status } from 'resources/shared/typeDefs/enums/Status';
 
 const typeDefs: DocumentNode[] = [
@@ -26,6 +27,7 @@ const typeDefs: DocumentNode[] = [
   Page,
   PageMeta,
   PageType,
+  UrlToPage,
   Status,
 ];
 
