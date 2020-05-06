@@ -22,53 +22,81 @@
 
   { "__comment": "data" },
   {
-    "id": "home",
-    "title": "Home",
-    "description": "the home page",
-    "pStatus": "PUBLISHED",
-    "pageTypeId": "home",
-    "fieldValues": [
+    "data": [
       {
-        "id": "plainText",
-        "key": "content",
-        "uStringValue": "this is the content!"
-      },
-      {
-        "id": "plainText",
-        "key": "side content",
-        "lStringValue": [
+        "id": "lightTheme",
+        "title": "Light Theme",
+        "description": "the light colored theme",
+        "pStatus": "PUBLISHED",
+        "pageTypeId": "theme",
+        "fieldValues": [
           {
-            "unicode": "en-US",
-            "value": "this is the side content en-US!"
+            "id": "plainText",
+            "key": "content",
+            "uStringValue": "this is the content!"
+          },
+          {
+            "id": "plainText",
+            "key": "side content",
+            "lStringValue": [
+              {
+                "unicode": "en-US",
+                "value": "this is the side content en-US!"
+              }
+            ]
           }
         ]
-      }
-    ],
-    "url": [
+      },
       {
-        "unicode": "en-US",
-        "value": "/home"
+        "id": "home",
+        "title": "Home",
+        "description": "the home page",
+        "pStatus": "PUBLISHED",
+        "pageTypeId": "home",
+        "fieldValues": [
+          {
+            "id": "plainText",
+            "key": "content",
+            "uStringValue": "this is the content!"
+          },
+          {
+            "id": "plainText",
+            "key": "side content",
+            "lStringValue": [
+              {
+                "unicode": "en-US",
+                "value": "this is the side content en-US!"
+              }
+            ]
+          }
+        ],
+        "url": [
+          {
+            "unicode": "en-US",
+            "value": "/home"
+          }
+        ],
+        "meta": {
+          "title": [
+            {
+              "unicode": "en-US",
+              "value": "Home page meta title"
+            }
+          ],
+          "description": [
+            {
+              "unicode": "en-US",
+              "value": "Home page meta description"
+            }
+          ],
+          "keywords": [
+            {
+              "unicode": "en-US",
+              "value": "Home page meta keywords"
+            }
+          ]
+        }
       }
-    ],
-    "meta": {
-      "title": [
-        {
-          "unicode": "en-US",
-          "value": "Home page meta title"
-        }
-      ],
-      "description": [
-        {
-          "unicode": "en-US",
-          "value": "Home page meta description"
-        }
-      ],
-      "keywords": [
-        {
-          "unicode": "en-US",
-          "value": "Home page meta keywords"
-        }
-      ]
-    }
+    ]
   }
 ]

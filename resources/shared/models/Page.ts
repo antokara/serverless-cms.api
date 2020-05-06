@@ -23,8 +23,8 @@ interface IPage {
   pStatus: EStatus;
   pageTypeId: string;
   fieldValues: TFieldValue[];
-  url: ILocalizedString[];
-  meta: IMeta;
+  url?: ILocalizedString[];
+  meta?: IMeta;
   // TODO: shortcut page
   // TODO: children pages (using the PageToPages table)
 }
@@ -41,12 +41,14 @@ const parseAttributeMap: (page: AttributeMap) => IPage = (
   description: page.description.S ?? '',
   pStatus: EStatus[(page.pStatus.S as keyof typeof EStatus) ?? EStatus.DRAFT],
   pageTypeId: page.pageTypeId.S ?? '',
-  url: parseLocalizedStrings(page.url.L ?? []),
-  meta: {
-    title: parseLocalizedStrings(page?.meta?.M?.title.L ?? []),
-    description: parseLocalizedStrings(page?.meta?.M?.description.L ?? []),
-    keywords: parseLocalizedStrings(page?.meta?.M?.keywords.L ?? []),
-  },
+  url: page.url?.L ? parseLocalizedStrings(page.url.L ?? []) : undefined,
+  meta: page.meta?.M
+    ? {
+        title: parseLocalizedStrings(page.meta.M?.title.L ?? []),
+        description: parseLocalizedStrings(page.meta.M?.description.L ?? []),
+        keywords: parseLocalizedStrings(page.meta.M?.keywords.L ?? []),
+      }
+    : undefined,
   fieldValues: parseFieldValues(page?.fieldValues.L ?? []),
 });
 
