@@ -6,11 +6,11 @@ import { DocumentNode } from 'graphql';
  *
  * @see resources/shared/typeDefs/types/UrlToPage.ts
  */
-const Redirect: DocumentNode = gql`
-  type Redirect {
+const Redirection: DocumentNode = gql`
+  type Redirection {
     url: String
     httpCode: Int
   }
 `;
 
-export { Redirect };
+export { Redirection };

@@ -6,7 +6,7 @@ import { EHttpCode } from 'resources/shared/models/EHttpCode';
  *
  * @see resources/shared/models/UrlToPage.ts
  */
-interface IRedirect {
+interface IRedirection {
   url: string;
   httpCode: EHttpCode;
 }
@@ -15,11 +15,11 @@ interface IRedirect {
  * parses the attributeMap provided by the DynamoDB output and
  * returns the interface model that the Apollo Resolver expects
  */
-const parseAttributeMap: (redirect: AttributeMap) => IRedirect = (
+const parseAttributeMap: (redirect: AttributeMap) => IRedirection = (
   redirect: AttributeMap,
-): IRedirect => ({
+): IRedirection => ({
   url: redirect.url.S ?? '',
   httpCode: Number(redirect.httpCode.N),
 });
 
-export { IRedirect, parseAttributeMap };
+export { IRedirection, parseAttributeMap };

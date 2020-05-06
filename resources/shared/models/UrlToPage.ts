@@ -4,9 +4,9 @@ import { IEnumResolver } from 'graphql-tools';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
 import { page as pageResolver } from 'resources/publicGraphql/apolloServer/resolvers/page';
 import {
-  IRedirect,
+  IRedirection,
   parseAttributeMap as parseRedirectAttributeMap,
-} from './Redirect';
+} from './Redirection';
 
 /**
  * interface used by the Apollo Resolver, etc.
@@ -19,7 +19,7 @@ interface IUrlToPage {
   // when provided, this url (unicode + path), points to either
   // an external page or to an internal page that moved
   // with httpCode redirection (ie. 301)
-  redirect?: IRedirect;
+  redirection?: IRedirection;
 }
 
 /**
@@ -40,7 +40,7 @@ const parseAttributeMap: (
   page: urlToPage.pageId?.S
     ? await pageResolver(parent, { id: urlToPage.pageId?.S }, ctx)
     : undefined,
-  redirect: urlToPage.redirect?.M
+  redirection: urlToPage.redirect?.M
     ? parseRedirectAttributeMap(urlToPage.redirect.M)
     : undefined,
 });

@@ -4,7 +4,7 @@ import { DocumentNode } from 'graphql';
 const UrlToPage: DocumentNode = gql`
   type UrlToPage {
     page: Page
-    redirect: Redirect
+    redirection: Redirection
   }
 `;
 
