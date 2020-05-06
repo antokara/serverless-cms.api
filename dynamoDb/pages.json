@@ -24,9 +24,9 @@
   {
     "data": [
       {
-        "id": "lightTheme",
-        "title": "Light Theme",
-        "description": "the light colored theme",
+        "id": "theme",
+        "title": "Theme",
+        "description": "the theme",
         "pStatus": "PUBLISHED",
         "pageTypeId": "theme",
         "fieldValues": [
