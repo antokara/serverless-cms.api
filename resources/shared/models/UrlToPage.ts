@@ -1,9 +1,12 @@
 import { AttributeMap } from 'aws-sdk/clients/dynamodb';
 import { IPage } from 'resources/shared/models/Page';
-import { EHttpCode } from 'resources/shared/models/EHttpCode';
 import { IEnumResolver } from 'graphql-tools';
 import { TContext } from 'resources/publicGraphql/apolloServer/context';
 import { page as pageResolver } from 'resources/publicGraphql/apolloServer/resolvers/page';
+import {
+  IRedirect,
+  parseAttributeMap as parseRedirectAttributeMap,
+} from './Redirect';
 
 /**
  * interface used by the Apollo Resolver, etc.
@@ -11,13 +14,12 @@ import { page as pageResolver } from 'resources/publicGraphql/apolloServer/resol
 interface IUrlToPage {
   unicode: string;
   path: string;
-  // when provided, this url, points to an internal page
+  // when provided, this url (unicode + path), points to an internal page
   page?: IPage;
-  // when provided, this url, points to either
+  // when provided, this url (unicode + path), points to either
   // an external page or to an internal page that moved
   // with httpCode redirection (ie. 301)
-  url?: string;
-  httpCode?: EHttpCode;
+  redirect?: IRedirect;
 }
 
 /**
@@ -38,8 +40,9 @@ const parseAttributeMap: (
   page: urlToPage.pageId?.S
     ? await pageResolver(parent, { id: urlToPage.pageId?.S }, ctx)
     : undefined,
-  url: urlToPage.url?.S,
-  httpCode: urlToPage.httpCode?.N ? Number(urlToPage.httpCode.N) : undefined,
+  redirect: urlToPage.redirect?.M
+    ? parseRedirectAttributeMap(urlToPage.redirect.M)
+    : undefined,
 });
 
 export { IUrlToPage, parseAttributeMap };

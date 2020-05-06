@@ -42,8 +42,10 @@
       {
         "unicode": "en-US",
         "path": "/contact",
-        "url": "http://localhost/test",
-        "httpCode": 307
+        "redirect": {
+          "url": "http://localhost/test",
+          "httpCode": 307
+        }
       }
     ]
   }
