@@ -22,27 +22,57 @@
 
   { "__comment": "data" },
   {
-    "id": "home",
-    "title": "Home",
-    "description": "the home page",
-    "pStatus": "PUBLISHED",
-    "fieldTypes": [
+    "data": [
       {
-        "id": "plainText",
-        "key": "content",
-        "lines": 10,
-        "localized": false
+        "id": "theme",
+        "title": "Theme",
+        "description": "the theme",
+        "pStatus": "PUBLISHED",
+        "fieldTypes": [
+          {
+            "id": "plainText",
+            "key": "content",
+            "lines": 10,
+            "localized": false
+          },
+          {
+            "id": "plainText",
+            "key": "side content",
+            "lines": 1,
+            "localized": true
+          }
+        ],
+        "minimum": 1,
+        "maximum": 1,
+        "childrenPages": [],
+        "meta": false,
+        "url": false
       },
       {
-        "id": "plainText",
-        "key": "side content",
-        "lines": 1,
-        "localized": true
+        "id": "home",
+        "title": "Home",
+        "description": "the home page",
+        "pStatus": "PUBLISHED",
+        "fieldTypes": [
+          {
+            "id": "plainText",
+            "key": "content",
+            "lines": 10,
+            "localized": false
+          },
+          {
+            "id": "plainText",
+            "key": "side content",
+            "lines": 1,
+            "localized": true
+          }
+        ],
+        "minimum": 1,
+        "maximum": 1,
+        "childrenPages": [],
+        "meta": true,
+        "url": true
       }
-    ],
-    "minimum": 1,
-    "maximum": 1,
-    "childrenPages": [],
-    "meta": true
+    ]
   }
 ]
