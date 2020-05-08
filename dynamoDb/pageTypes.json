@@ -24,6 +24,18 @@
   {
     "data": [
       {
+        "id": "root",
+        "title": "Root",
+        "description": "the root",
+        "pStatus": "PUBLISHED",
+        "fieldTypes": [],
+        "minimum": 1,
+        "maximum": 1,
+        "childrenPages": [],
+        "meta": false,
+        "url": false
+      },
+      {
         "id": "theme",
         "title": "Theme",
         "description": "the theme",
