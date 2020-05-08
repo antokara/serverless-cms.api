@@ -1,0 +1,49 @@
+[
+  { "__comment": "definition" },
+  {
+    "__comment": "parent / children relationships for Pages. ie. root -> theme / main menu"
+  },
+  {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "pageId",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "childPageId",
+        "AttributeType": "S"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "pageId",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "childPageId",
+        "KeyType": "RANGE"
+      }
+    ],
+    "TableName": "pageToPages",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  },
+
+  { "__comment": "data" },
+  {
+    "data": [
+      {
+        "pageId": "root",
+        "childPageId": "theme",
+        "sort": 0
+      },
+      {
+        "pageId": "root",
+        "childPageId": "home",
+        "sort": 1
+      }
+    ]
+  }
+]
