@@ -41,8 +41,13 @@
       },
       {
         "pageId": "root",
-        "childPageId": "home",
+        "childPageId": "mainMenu",
         "sort": 1
+      },
+      {
+        "pageId": "mainMenu",
+        "childPageId": "home",
+        "sort": 0
       }
     ]
   }

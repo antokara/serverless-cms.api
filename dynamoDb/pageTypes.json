@@ -61,6 +61,24 @@
         "url": false
       },
       {
+        "id": "mainMenu",
+        "title": "Main menu",
+        "description": "the main menu",
+        "pStatus": "PUBLISHED",
+        "fieldTypes": [],
+        "minimum": 1,
+        "maximum": 1,
+        "childrenPages": [
+          {
+            "id": "home",
+            "min": 1,
+            "max": 1
+          }
+        ],
+        "meta": false,
+        "url": false
+      },
+      {
         "id": "home",
         "title": "Home",
         "description": "the home page",
