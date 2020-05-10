@@ -7,7 +7,6 @@ import { LUString as FieldValueLUString } from 'resources/shared/typeDefs/types/
 import { FieldValue } from 'resources/shared/typeDefs/types/fieldValue/FieldValue';
 import { Language } from 'resources/shared/typeDefs/types/Language';
 import { LocalizedString } from 'resources/shared/typeDefs/types/LocalizedString';
-import { Menu } from 'resources/shared/typeDefs/types/Menu';
 import { Page } from 'resources/shared/typeDefs/types/Page';
 import { PageMeta } from 'resources/shared/typeDefs/types/PageMeta';
 import { PageType } from 'resources/shared/typeDefs/types/PageType';
@@ -24,7 +23,6 @@ const typeDefs: DocumentNode[] = [
   FieldValueLUString,
   Language,
   LocalizedString,
-  Menu,
   Page,
   PageMeta,
   PageType,
