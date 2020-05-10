@@ -1,8 +1,8 @@
 {
-  "name": "shared-packages",
+  "name": "serverless-cms.api.shared-packages",
+  "description": "serverless cms - api - shared packages",
   "private": true,
   "version": "1.0.0",
-  "description": "shared packages",
   "author": "SAM CLI",
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {

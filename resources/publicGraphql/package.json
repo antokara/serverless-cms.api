@@ -1,10 +1,10 @@
 {
-  "name": "public-graphql",
+  "name": "serverless-cms.api.public-graphql",
   "private": true,
   "version": "1.0.0",
-  "description": "apollo graphql sample for NodeJS",
+  "description": "serverless cms - api - public graphql",
   "main": "app.js",
-  "author": "SAM CLI",
+  "author": "Antonios Karagiannis https://antokara.me",
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
     "apollo-server-core": "^2.12.0",
