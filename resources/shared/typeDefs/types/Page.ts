@@ -11,6 +11,7 @@ const Page: DocumentNode = gql`
     fieldValues: [FieldValueLUString]
     url: [LocalizedString]
     meta: PageMeta
+    pages: [Page]
   }
 `;
 

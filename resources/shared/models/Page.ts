@@ -1,3 +1,5 @@
+import { IEnumResolver } from 'graphql-tools';
+import { TContext } from 'resources/publicGraphql/apolloServer/context';
 import { AttributeMap } from 'aws-sdk/clients/dynamodb';
 import { EStatus } from 'resources/shared/models/EStatus';
 import {
@@ -6,6 +8,7 @@ import {
 } from 'resources/shared/models/LocalizedString';
 import { parseListAttributeValue as parseFieldValues } from 'resources/shared/models/fieldValue/parsers';
 import { TFieldValue } from 'resources/shared/models/fieldValue/TFieldValue';
+import { pageToPages } from 'resources/publicGraphql/apolloServer/resolvers/pageToPages';
 
 interface IMeta {
   title: ILocalizedString[];
@@ -25,17 +28,28 @@ interface IPage {
   fieldValues: TFieldValue[];
   url?: ILocalizedString[];
   meta?: IMeta;
+  pages: IPage[];
   // TODO: shortcut page
-  // TODO: children pages (using the PageToPages table)
 }
 
+/* 
+  we have to disable this eslint rule because we need this behavior (page -> pageToPages -> page)
+  @see https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-cycle.md#when-not-to-use-it
+*/
+/* eslint import/no-cycle: [0] */
 /**
  * parses the attributeMap provided by the DynamoDB output and
  * returns the interface model that the Apollo Resolver expects
  */
-const parseAttributeMap: (page: AttributeMap) => IPage = (
+const parseAttributeMap: (
   page: AttributeMap,
-): IPage => ({
+  parent: IEnumResolver,
+  ctx: TContext,
+) => Promise<IPage> = async (
+  page: AttributeMap,
+  parent: IEnumResolver,
+  ctx: TContext,
+): Promise<IPage> => ({
   id: page.id.S ?? '',
   title: page.title.S ?? '',
   description: page.description.S ?? '',
@@ -50,6 +64,10 @@ const parseAttributeMap: (page: AttributeMap) => IPage = (
       }
     : undefined,
   fieldValues: parseFieldValues(page?.fieldValues.L ?? []),
+  pages:
+    typeof page.id.S !== 'undefined'
+      ? await pageToPages(parent, { id: page.id.S }, ctx)
+      : [],
 });
 
 export { IMeta, IPage, parseAttributeMap };
