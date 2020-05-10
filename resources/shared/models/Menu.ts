@@ -41,12 +41,10 @@ const parseAttributeMap: (
   maxPages: Number(menu.maxPages.N) ?? 0,
   pages: await Promise.all<IPage | undefined>(
     menu.pages.L?.map<Promise<IPage | undefined>>(
-      async (page: AttributeValue): Promise<IPage | undefined> => {
-        if (typeof page.S !== 'undefined') {
-          return pageResolver(parent, { id: page.S }, ctx);
-        }
-        return Promise.resolve(undefined);
-      },
+      async (page: AttributeValue): Promise<IPage | undefined> =>
+        typeof page.S !== 'undefined'
+          ? pageResolver(parent, { id: page.S }, ctx)
+          : Promise.resolve(undefined),
     ) ?? [],
   ).then((pages: (IPage | undefined)[]) =>
     pages.filter(
