@@ -1,0 +1,62 @@
+[
+  { "__comment": "definition" },
+  {
+    "AttributeDefinitions": [
+      {
+        "AttributeName": "id",
+        "AttributeType": "S"
+      },
+      {
+        "AttributeName": "version",
+        "AttributeType": "N"
+      }
+    ],
+    "KeySchema": [
+      {
+        "AttributeName": "id",
+        "KeyType": "HASH"
+      },
+      {
+        "AttributeName": "version",
+        "KeyType": "RANGE"
+      }
+    ],
+    "TableName": "files",
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 1,
+      "WriteCapacityUnits": 1
+    }
+  },
+
+  { "__comment": "data" },
+  {
+    "data": [
+      {
+        "id": "testFile",
+        "version": 0,
+        "title": "test JPEG file v0",
+        "description": "just a test JPEG file v0",
+        "pStatus": "PUBLISHED",
+        "filename": "test-file-v0.jpeg",
+        "mimeType": "image/jpeg",
+        "bytes": 1024,
+        "meta": null,
+        "createdOn": "2020-05-10T22:10:33+00:00",
+        "updatedOn": "2020-05-15T22:10:33+00:00"
+      },
+      {
+        "id": "testFile",
+        "version": 1,
+        "title": "test JPEG file v1",
+        "description": "just a test JPEG file v1",
+        "pStatus": "PUBLISHED",
+        "filename": "test-file-v1.jpeg",
+        "mimeType": "image/jpeg",
+        "bytes": 1024,
+        "meta": null,
+        "createdOn": "2020-06-10T22:10:33+00:00",
+        "updatedOn": "2020-06-15T22:10:33+00:00"
+      }
+    ]
+  }
+]
