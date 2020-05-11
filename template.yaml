@@ -3,12 +3,20 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   graphql
 
-  Sample SAM Template for graphql
+  SAM Template for the serverless cms - api
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
     Timeout: 3
+    Environment:
+      Variables:
+        AWS_ACCESS_KEY_ID: 'test-access-key-id'
+        AWS_SECRET_ACCESS_KEY: 'test-secret-access-key'
+        AWS_REGION: 'localhost'
+        AWS_SSL_ENABLED: false
+        AWS_DYNAMODB_API_VERSION: '2012-08-10'
+        AWS_DYNAMODB_ENDPOINT: 'http://192.168.86.82:8000'
 
 Resources:
   publicGraphql:

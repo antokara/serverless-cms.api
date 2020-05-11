@@ -4,11 +4,11 @@ const awsConfig: Config = new Config();
 
 awsConfig.update({
   credentials: {
-    accessKeyId: 'test-access-key-id',
-    secretAccessKey: 'test-secret-access-key',
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID ?? '',
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY ?? '',
   },
-  region: 'localhost',
-  sslEnabled: false,
+  region: process.env.AWS_REGION,
+  sslEnabled: Boolean(process.env.AWS_SSL_ENABLED),
 });
 
 export { awsConfig };

@@ -1,8 +1,8 @@
 import { DynamoDB } from 'aws-sdk';
 
 const dynamoDBclientConfig: DynamoDB.ClientConfiguration = {
-  apiVersion: '2012-08-10',
-  endpoint: 'http://192.168.86.82:8000',
+  apiVersion: process.env.AWS_DYNAMODB_API_VERSION,
+  endpoint: process.env.AWS_DYNAMODB_ENDPOINT,
 };
 
 export { dynamoDBclientConfig };
