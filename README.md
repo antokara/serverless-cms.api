@@ -6,6 +6,13 @@
 
 `$npm run init`
 
+### configuration
+
+edit `env.json`  
+note that `AWS_DYNAMODB_ENDPOINT` must point to the explicit IP address
+of your computer on the network. You cannot use _localhost_ or _127.0.0.1_ because
+the Lambda function runs in a container and _localhost_, will be the container itself...
+
 ### run
 
 #### DynamoDB
