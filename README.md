@@ -30,6 +30,11 @@ the Lambda function runs in a container and _localhost_, will be the container i
 open http://127.0.0.1:9000/minio/ in your browser
 login with `test-access-key-id` and `test-secret-access-key`
 
+or
+
+using the cli guide
+https://docs.minio.io/docs/aws-cli-with-minio.html
+
 #### one command API
 
 `$npm run dev`
