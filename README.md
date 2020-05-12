@@ -15,9 +15,19 @@ the Lambda function runs in a container and _localhost_, will be the container i
 
 ### run
 
-#### DynamoDB
+#### DynamoDB and S3
 
 `$sudo docker-compose -f containers/compose.develop.yml up`
+
+#### DynamoDB access
+
+1. download https://github.com/Arattian/DynamoDb-GUI-Client
+1. install / run
+1. connect to http://localhost:8000
+
+#### S3 access
+
+open http://127.0.0.1:9000/minio/ in your browser
 
 #### one command API
 

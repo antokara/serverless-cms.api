@@ -7,3 +7,14 @@ services:
     ports:
       - 8000:8000
     command: ['-jar', 'DynamoDBLocal.jar', '-sharedDb']
+  s3:
+    container_name: s3
+    image: minio/minio
+    restart: always
+    ports:
+      - 9000:9000
+    environment:
+      - MINIO_ACCESS_KEY=test-access-key-id
+      - MINIO_SECRET_KEY=test-secret-access-key
+      - MINIO_REGION_NAME=localhost
+    command: ['minio', 'server', '/data']
