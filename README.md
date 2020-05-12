@@ -28,6 +28,7 @@ the Lambda function runs in a container and _localhost_, will be the container i
 #### S3 access
 
 open http://127.0.0.1:9000/minio/ in your browser
+login with `test-access-key-id` and `test-secret-access-key`
 
 #### one command API
 
