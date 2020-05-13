@@ -21,19 +21,18 @@ the Lambda function runs in a container and _localhost_, will be the container i
 
 #### DynamoDB access
 
-1. download https://github.com/Arattian/DynamoDb-GUI-Client
+1. download [DynamoDb-GUI-Client](https://github.com/Arattian/DynamoDb-GUI-Client)
 1. install / run
-1. connect to http://localhost:8000
+1. connect to [http://localhost:8000](http://localhost:8000)
 
 #### S3 access
 
-open http://127.0.0.1:9000/minio/ in your browser
+open [http://127.0.0.1:9000/minio/](http://127.0.0.1:9000/minio/) in your browser
 login with `test-access-key-id` and `test-secret-access-key`
 
 or
 
-using the cli guide
-https://docs.minio.io/docs/aws-cli-with-minio.html
+using the [cli guide](https://docs.minio.io/docs/aws-cli-with-minio.html)
 
 #### one command API
 
