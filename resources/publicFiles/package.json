@@ -3,15 +3,17 @@
   "private": true,
   "version": "1.0.0",
   "description": "serverless cms - api - public files",
-  "main": "app.js",
+  "main": "app.ts",
   "author": "Antonios Karagiannis https://antokara.me",
   "license": "CC-BY-NC-ND-4.0",
   "dependencies": {
     "aws-lambda": "^1.0.5",
-    "aws-sdk": "^2.656.0"
+    "aws-sdk": "^2.656.0",
+    "sharp": "^0.25.2"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.51",
+    "@types/sharp": "^0.25.0",
     "@types/webpack-node-externals": "^1.7.1",
     "webpack-node-externals": "^1.7.2"
   }

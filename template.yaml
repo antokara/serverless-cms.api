@@ -16,6 +16,9 @@ Globals:
         AWS_SSL_ENABLED: false
         AWS_DYNAMODB_API_VERSION: '2012-08-10'
         AWS_DYNAMODB_ENDPOINT: 'http://192.168.86.82:8000'
+        AWS_S3_VERSION: '2006-03-01'
+        AWS_S3_ENDPOINT: 'http://192.168.86.82:9000'
+        AWS_S3_BUCKET: 'serverless-cms.files.dev'
 
 Resources:
   publicGraphql:
@@ -39,10 +42,10 @@ Resources:
       Handler: app.handler
       Runtime: nodejs12.x
       Events:
-        file:
+        imageProcess:
           Type: Api
           Properties:
-            Path: /file
+            Path: /image-process
             Method: get
             Auth:
               Authorizer: 'NONE'
