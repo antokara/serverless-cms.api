@@ -35,10 +35,10 @@ Resources:
             Method: post
             Auth:
               Authorizer: 'NONE'
-  publicFiles:
+  publicImages:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: resources/publicFiles/
+      CodeUri: resources/publicImages/
       Handler: app.handler
       Runtime: nodejs12.x
       Events:

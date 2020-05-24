@@ -6,7 +6,7 @@ const nodeModules: string = path.join(__dirname, 'node_modules');
 
 const config: Configuration = {
   entry: {
-    publicFiles: path.join(__dirname, 'app.ts'),
+    publicImages: path.join(__dirname, 'app.ts'),
   },
   // find the local node_modules dir
   resolve: {

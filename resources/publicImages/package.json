@@ -1,8 +1,8 @@
 {
-  "name": "serverless-cms.api.public-files",
+  "name": "serverless-cms.api.public-images",
   "private": true,
   "version": "1.0.0",
-  "description": "serverless cms - api - public files",
+  "description": "serverless cms - api - public images",
   "main": "app.ts",
   "author": "Antonios Karagiannis https://antokara.me",
   "license": "CC-BY-NC-ND-4.0",

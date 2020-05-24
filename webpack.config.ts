@@ -5,7 +5,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import merge from 'webpack-merge';
 import { Configuration } from 'webpack';
 import { config as publicGraphql } from './resources/publicGraphql/webpack.config';
-import { config as publicFiles } from './resources/publicFiles/webpack.config';
+import { config as publicImages } from './resources/publicImages/webpack.config';
 
 const buildPath: string = path.join(__dirname, '/.aws-sam/build');
 const resourcesPath: string = `${buildPath}/resources`;
@@ -64,16 +64,16 @@ const baseOptions: Configuration = {
         to: `${resourcesPath}/publicGraphql/node_modules/`,
         toType: 'dir',
       },
-      // public files
+      // public images
       {
-        context: path.join(__dirname, '/resources/publicFiles'),
+        context: path.join(__dirname, '/resources/publicImages'),
         from: 'package.json',
-        to: `${resourcesPath}/publicFiles/[name].[ext]`,
+        to: `${resourcesPath}/publicImages/[name].[ext]`,
       },
       {
-        context: path.join(__dirname, '/resources/publicFiles'),
+        context: path.join(__dirname, '/resources/publicImages'),
         from: 'node_modules/',
-        to: `${resourcesPath}/publicFiles/node_modules/`,
+        to: `${resourcesPath}/publicImages/node_modules/`,
         toType: 'dir',
       },
     ]),
@@ -86,4 +86,4 @@ const baseOptions: Configuration = {
   },
 };
 
-module.exports = [merge(baseOptions, publicGraphql, publicFiles)];
+module.exports = [merge(baseOptions, publicGraphql, publicImages)];
