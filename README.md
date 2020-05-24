@@ -18,6 +18,7 @@ the Lambda function runs in a container and _localhost_, will be the container i
 #### DynamoDB and S3
 
 `$sudo docker-compose -f containers/compose.develop.yml up`
+`$npm run config:s3 -- --build-arg S3=http://192.168.86.82:9000` (required only once, replace the IP of the S3 with your network IP)
 
 #### DynamoDB access
 
@@ -52,3 +53,15 @@ useful if you need to restart the API regularly (ie. while working on template.y
 ## build
 
 `$npm run build`
+
+## Infrastructure
+
+### Image Processing
+
+[Resizing Images with Amazon CloudFront & Lambda@Edge | AWS CDN Blog](https://aws.amazon.com/blogs/networking-and-content-delivery/resizing-images-with-amazon-cloudfront-lambdaedge-aws-cdn-blog/)
+
+[Resize Images on the Fly with Amazon S3, AWS Lambda, and Amazon API Gateway](https://aws.amazon.com/blogs/compute/resize-images-on-the-fly-with-amazon-s3-aws-lambda-and-amazon-api-gateway/)
+
+[Lambda@Edge Example Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-examples.html)
+
+For local development, in lieu of AWS S3, we use [minio](https://min.io/) and for the

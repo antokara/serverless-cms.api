@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "init": "npx recursive-install",
+    "config:s3": "docker build containers/minio/ --no-cache",
     "lint": "concurrently \"npm:lint:*\"",
     "lint:eslint": "eslint ./resources --ext .js,.jsx,.ts,.tsx",
     "lint:prettier": "prettier --check 'resources/**/*.ts?(x)'",
