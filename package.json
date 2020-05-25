@@ -14,6 +14,7 @@
     "lint:commit": "commitlint --from=HEAD~1",
     "build": "webpack --config ./webpack.config.ts --env.NODE_ENV=production --env.production --progress",
     "build:dev": "webpack --config ./webpack.config.ts --env.NODE_ENV=development --progress",
+    "dev:cloudfront": "(cd localdev/cloudfront && npm run dev && cd -)",
     "dev:watch": "webpack-cli -w",
     "dev:start-api": "sam local start-api --env-vars env.json",
     "dev": "npm run build:dev && concurrently \"npm:dev:*\"",

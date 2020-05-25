@@ -45,6 +45,7 @@ useful if you need to restart the API regularly (ie. while working on template.y
 
 `$npm run dev:watch`  
 `$npm run dev:start-api`
+`$npm run dev:cloudfront`
 
 ## lint
 
