@@ -10,7 +10,7 @@
     "apollo-server-core": "^2.12.0",
     "apollo-server-lambda": "^2.12.0",
     "aws-lambda": "^1.0.5",
-    "aws-sdk": "^2.656.0",
+    "aws-sdk": "^2.814.0",
     "graphql": "^15.0.0",
     "graphql-tools": "^4.0.8"
   },
